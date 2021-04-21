@@ -46,8 +46,8 @@ class RunMigrationCommand extends Command
         $forceExecution = $this->option('force') ? ' --force' : '';
         $migrationSUbCommand = '';
 
-        if (!empty($migrationSubCommand)) {
-            if (!in_array($migrationSubCommand, $this->supportedMigrationSubCommands)) {
+        if (! empty($migrationSubCommand)) {
+            if (! in_array($migrationSubCommand, $this->supportedMigrationSubCommands)) {
                 $this->error("Migrate command: {$migrationSubCommand} not supported.");
                 $this->error('Just the following migrate commands are allowed: '.implode(', ', $this->supportedMigrationSubCommands));
 
