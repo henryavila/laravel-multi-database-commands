@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Artisan;
 
 class CreateMigrationCommand extends Command
 {
-
-
     protected $signature = 'multi-db:make-migration
             {name       : The name of the migration}
             {connection : The name of DB connection. If defined, will run command just in this DB connection}
@@ -22,7 +20,6 @@ class CreateMigrationCommand extends Command
      * @var string
      */
     protected $description = 'Create a new migration file saving it in the  correct migration folder.';
-
 
     /**
      * Execute the console command.
@@ -39,6 +36,7 @@ class CreateMigrationCommand extends Command
         $connectionConfig = config("database.connections.$selectedDbConnection");
         if (empty($connectionConfig)) {
             $this->error("The DB Connection '{$selectedDbConnection}' is not configured in database config file.");
+
             return 1;
         }
 

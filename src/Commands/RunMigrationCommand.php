@@ -26,7 +26,6 @@ class RunMigrationCommand extends Command
         parent::__construct();
     }
 
-
     /**
      * The console command description.
      *
@@ -34,7 +33,6 @@ class RunMigrationCommand extends Command
      */
     protected $description = 'Run migrate command a single database connection defined by "connection" param,
     or in multiple db connections defined in multi_database_commands config file';
-
 
     /**
      * Execute the console command.
@@ -48,11 +46,11 @@ class RunMigrationCommand extends Command
         $forceExecution = $this->option('force') ? ' --force' : '';
         $migrationSUbCommand = '';
 
-        if (!empty($migrationSubCommand)) {
-
-            if (!in_array($migrationSubCommand, $this->supportedMigrationSubCommands)) {
+        if (! empty($migrationSubCommand)) {
+            if (! in_array($migrationSubCommand, $this->supportedMigrationSubCommands)) {
                 $this->error("Migrate command: {$migrationSubCommand} not supported.");
                 $this->error('Just the following migrate commands are allowed: ' . implode(', ', $this->supportedMigrationSubCommands));
+
                 return 1;
             }
 
@@ -67,6 +65,7 @@ class RunMigrationCommand extends Command
             $databases = config('multi_database_commands.databases');
             if (empty($databases)) {
                 $this->error('No database specified and no database defined in multi_database_commands config file');
+
                 return 1;
             }
         }

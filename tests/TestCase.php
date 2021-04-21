@@ -2,9 +2,9 @@
 
 namespace AppsInteligentes\LaravelMultiDatabaseCommands\Tests;
 
+use AppsInteligentes\LaravelMultiDatabaseCommands\LaravelMultiDatabaseCommandsServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use AppsInteligentes\LaravelMultiDatabaseCommands\LaravelMultiDatabaseCommandsServiceProvider;
 
 class TestCase extends Orchestra
 {
