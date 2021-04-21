@@ -37,7 +37,7 @@ each database present in `multi_database_commands.databases` will have their own
 Ex: All migrations for DB `tenant` will be stored in `database/migration/tenant`. 
 All migrate command executed by this package will isolate all DB.
 
-### Crate Migration Files
+### Create Migration Files
 To create the migration add_active_column_on_users_table on tenant db connection, run the command:
 ```bash
 php artisan multi-db:make-migration add_active_column_on_users_table tenant
