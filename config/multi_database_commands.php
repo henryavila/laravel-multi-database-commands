@@ -1,4 +1,5 @@
 <?php
+
 return [
 
     /*
@@ -7,5 +8,5 @@ return [
      */
     'databases' => [
 
-    ]
+    ],
 ];

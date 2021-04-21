@@ -20,12 +20,11 @@ class RunMigrationCommand extends Command
     {
         $this->signature = 'multi-db:migrate
             {connection? : The name of DB connection. If defined, will run command just in this DB connection}
-            {--C|command= : The migrante command to be executed. The options are ' . implode(', ', $this->supportedMigrationSubCommands) . '}
+            {--C|command= : The migrante command to be executed. The options are '.implode(', ', $this->supportedMigrationSubCommands).'}
             {--F|force : Force Migrate}';
 
         parent::__construct();
     }
-
 
     /**
      * The console command description.
@@ -34,7 +33,6 @@ class RunMigrationCommand extends Command
      */
     protected $description = 'Run migrate command a single database connection defined by "connection" param,
     or in multiple db connections defined in multi_database_commands config file';
-
 
     /**
      * Execute the console command.
@@ -49,16 +47,15 @@ class RunMigrationCommand extends Command
         $migrationSUbCommand = '';
 
         if (!empty($migrationSubCommand)) {
-
             if (!in_array($migrationSubCommand, $this->supportedMigrationSubCommands)) {
                 $this->error("Migrate command: {$migrationSubCommand} not supported.");
-                $this->error('Just the following migrate commands are allowed: ' . implode(', ', $this->supportedMigrationSubCommands));
+                $this->error('Just the following migrate commands are allowed: '.implode(', ', $this->supportedMigrationSubCommands));
+
                 return 1;
             }
 
             $migrationSUbCommand = ":{$migrationSubCommand}";
         }
-
 
         // If a DB is selected. Let`s run the command just with it
         if ($selectedDbConnection) {
@@ -67,6 +64,7 @@ class RunMigrationCommand extends Command
             $databases = config('multi_database_commands.databases');
             if (empty($databases)) {
                 $this->error('No database specified and no database defined in multi_database_commands config file');
+
                 return 1;
             }
         }
