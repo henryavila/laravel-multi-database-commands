@@ -13,7 +13,6 @@ class CreateMigrationCommand extends Command
             {--create=  : The table to be created}
             {--table=   : The table to be migrated}';
 
-
     /**
      * The console command description.
      *
@@ -42,7 +41,6 @@ class CreateMigrationCommand extends Command
 
         $createCommandOption = $create ? " --create {$create}" : '';
         $tableCommandOption = $create ? " --table  {$table}" : '';
-
 
         $commandToRun = "make:migration {$name} --path database/migrations/{$selectedDbConnection} {$createCommandOption} {$tableCommandOption}";
 

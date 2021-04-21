@@ -20,7 +20,7 @@ class RunMigrationCommand extends Command
     {
         $this->signature = 'multi-db:migrate
             {connection? : The name of DB connection. If defined, will run command just in this DB connection}
-            {--C|command= : The migrante command to be executed. The options are ' . implode(', ', $this->supportedMigrationSubCommands) . '}
+            {--C|command= : The migrante command to be executed. The options are '.implode(', ', $this->supportedMigrationSubCommands).'}
             {--F|force : Force Migrate}';
 
         parent::__construct();
@@ -49,14 +49,13 @@ class RunMigrationCommand extends Command
         if (! empty($migrationSubCommand)) {
             if (! in_array($migrationSubCommand, $this->supportedMigrationSubCommands)) {
                 $this->error("Migrate command: {$migrationSubCommand} not supported.");
-                $this->error('Just the following migrate commands are allowed: ' . implode(', ', $this->supportedMigrationSubCommands));
+                $this->error('Just the following migrate commands are allowed: '.implode(', ', $this->supportedMigrationSubCommands));
 
                 return 1;
             }
 
             $migrationSUbCommand = ":{$migrationSubCommand}";
         }
-
 
         // If a DB is selected. Let`s run the command just with it
         if ($selectedDbConnection) {
