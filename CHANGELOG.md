@@ -1,7 +1,8 @@
 # Changelog
 
-All notable changes to `:package_name` will be documented in this file.
+All notable changes to `laravel-multi-database-commands` will be documented in this file.
 
-## 1.0.0 - 202X-XX-XX
+## 1.0.0 - 2021-04-21
 
-- initial release
+- Execute any migration command (status, rollback, etc) on single or multi DB
+- Create migration file respecting the DB folder.

@@ -1,73 +1,68 @@
-# :package_description
+# This package provides an abstraction to efficiently run migrate command on multiple database app
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/vendor_slug/package_slug.svg?style=flat-square)](https://packagist.org/packages/vendor_slug/package_slug)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/vendor_slug/package_slug/run-tests?label=tests)](https://github.com/vendor_slug/package_slug/actions?query=workflow%3Arun-tests+branch%3Amaster)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/vendor_slug/package_slug/Check%20&%20fix%20styling?label=code%20style)](https://github.com/vendor_slug/package_slug/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/vendor_slug/package_slug.svg?style=flat-square)](https://packagist.org/packages/vendor_slug/package_slug)
-
-[](delete) 1) manually replace `:author_name, :author_username, auhor@domain.com, :vendor_name, vendor_slug, Vendor Name, :package_name, package_slug, skeleton, Skeleton, :package_description` with their correct values
-[](delete) in `CHANGELOG.md, LICENSE.md, README.md, ExampleTest.php, ModelFactory.php, Skeleton.php, SkeletonCommand.php, SkeletonFacade.php, SkeletonServiceProvider.php, TestCase.php, composer.json, create_skeleton_table.php.stub`
-[](delete) and delete `configure-skeleton.sh`
-
-[](delete) 2) You can also run `./configure-skeleton.sh` to do this automatically.
-
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/package-skeleton-laravel.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/package-skeleton-laravel)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require vendor_slug/package_slug
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --provider="VendorName\Skeleton\SkeletonServiceProvider" --tag="package_slug-migrations"
-php artisan migrate
+composer require apps-inteligentes/laravel-multi-database-commands
 ```
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="VendorName\Skeleton\SkeletonServiceProvider" --tag="package_slug-config"
+php artisan vendor:publish --provider="AppsInteligentes\LaravelMultiDatabaseCommands\LaravelMultiDatabaseCommandsServiceProvider" --tag="laravel_multi_database_commands-config"
 ```
 
 This is the contents of the published config file:
 
 ```php
 return [
+
+    /*
+     * Add here the list of all database connection.
+     * You can find the connection names in config file: database.connections
+     */
+    'databases' => [
+
+    ]
 ];
 ```
 
 ## Usage
 
-```php
-$skeleton = new VendorName\Skeleton();
-echo $skeleton->echoPhrase('Hello, Spatie!');
-```
+All new migration, created by this package will be organized this way:
+each database present in `multi_database_commands.databases` will have their own migration folder.
 
-## Testing
+Ex: All migrations for DB `tenant` will be stored in `database/migration/tenant`. 
+All migrate command executed by this package will isolate all DB.
 
+### Crate Migration Files
+To create the migration add_active_column_on_users_table on tenant db connection, run the command:
 ```bash
-composer test
+php artisan multi-db:make-migration add_active_column_on_users_table tenant
+```
+Just like `php artisan make:migration` command, you can use the options `--create theTableToBeCreated` and `--table theTableToBeMigrated`
+
+
+### Running Migrations
+To execute a migrate command in all DB. The list of all databases, must be defined in config file `multi_database_commands`
+```bash
+php artisan multi-db:migrate
+php artisan multi-db:migrate -C status
+```
+Just like `php artisan migrate` command, you can use all laravel variations `fresh`, `install`, `refresh`, `reset`, `rollback` and status`
+
+
+To execute the command in on DB, just inform the db connection name
+```bash
+#Execute the migrate:status just on log db
+php artisan multi-db:migrate log -C status
 ```
 
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
 
 ## Security Vulnerabilities
 
@@ -75,8 +70,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
-- [All Contributors](../../contributors)
+- [Henry Ávila](https://github.com/henryavila)
 
 ## License
 

@@ -1,17 +1,17 @@
 {
-    "name": "vendor_slug/package_slug",
-    "description": ":package_description",
+    "name": "apps-inteligentes/laravel-multi-database-commands",
+    "description": "This package provides an abstraction to efficiently manage multiple database application commands, like: migrate",
     "keywords": [
-        ":vendor_name",
+        "apps-inteligentes",
         "laravel",
-        "package_slug"
+        "laravel_multi_database_commands"
     ],
-    "homepage": "https://github.com/vendor_slug/package_slug",
+    "homepage": "https://github.com/apps-inteligentes/laravel_multi_database_commands",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Henry Ávila",
+            "email": "dev@henryavila.com",
             "role": "Developer"
         }
     ],
@@ -30,13 +30,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "AppsInteligentes\\LaravelMultiDatabaseCommands\\": "src",
+            "AppsInteligentes\\LaravelMultiDatabaseCommands\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "AppsInteligentes\\LaravelMultiDatabaseCommands\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -50,10 +50,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "AppsInteligentes\\LaravelMultiDatabaseCommands\\LaravelMultiDatabaseCommandsServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\SkeletonFacade"
+                "LaravelMultiDatabaseCommands": "AppsInteligentes\\LaravelMultiDatabaseCommands\\LaravelMultiDatabaseCommandsFacade"
             }
         }
     },
