@@ -2,25 +2,18 @@
 
 namespace AppsInteligentes\LaravelMultiDatabaseCommands\Commands;
 
+use AppsInteligentes\LaravelMultiDatabaseCommands\LaravelMultiDatabaseCommands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 
 class RunMigrationCommand extends Command
 {
-    private array $supportedMigrationSubCommands = [
-        'fresh',
-        'install',
-        'refresh',
-        'reset',
-        'rollback',
-        'status',
-    ];
 
     public function __construct()
     {
         $this->signature = 'multi-db:migrate
             {connection? : The name of DB connection. If defined, will run command just in this DB connection}
-            {--C|command= : The migrante command to be executed. The options are ' . implode(', ', $this->supportedMigrationSubCommands) . '}
+            {--C|command= : The migrante command to be executed. The options are ' . implode(', ', LaravelMultiDatabaseCommands::$supportedMigrationRunSubCommands) . '}
             {--F|force : Force Migrate}';
 
         parent::__construct();
@@ -43,19 +36,14 @@ class RunMigrationCommand extends Command
     {
         $migrationSubCommand = $this->option('command');
         $selectedDbConnection = $this->argument('connection');
-        $forceExecution = $this->option('force') ? ' --force' : '';
-        $migrationSUbCommand = '';
 
-        if (!empty($migrationSubCommand)) {
-            if (!in_array($migrationSubCommand, $this->supportedMigrationSubCommands)) {
-                $this->error("Migrate command: {$migrationSubCommand} not supported.");
-                $this->error('Just the following migrate commands are allowed: ' . implode(', ', $this->supportedMigrationSubCommands));
+        if (!empty($migrationSubCommand) && !in_array($migrationSubCommand, LaravelMultiDatabaseCommands::$supportedMigrationRunSubCommands)) {
+            $this->error("Migrate command: {$migrationSubCommand} not supported.");
+            $this->error('Just the following migrate commands are allowed: ' . implode(', ', LaravelMultiDatabaseCommands::$supportedMigrationRunSubCommands));
 
-                return 1;
-            }
-
-            $migrationSUbCommand = ":{$migrationSubCommand}";
+            return 1;
         }
+
 
         // If a DB is selected. Let`s run the command just with it
         if ($selectedDbConnection) {
@@ -70,16 +58,18 @@ class RunMigrationCommand extends Command
         }
 
         foreach ($databases as $selectedDbConnection) {
-            $this->executeMigrate($selectedDbConnection, $migrationSUbCommand, $forceExecution);
+            $this->executeMigrate($selectedDbConnection, $migrationSubCommand, (boolean)$this->option('force'));
         }
 
         return 0;
     }
 
-    private function executeMigrate(string $name, string $migrateSubCommand, string $forceExecution): void
+    private function executeMigrate(string $dbConnection, string $migrateSubCommand = null, bool $force = false): void
     {
-        $this->info("Migrating: {$name}");
-        Artisan::call("migrate{$migrateSubCommand} --database={$name} --path=database/migrations/{$name} {$forceExecution}");
+        $this->info("Migrating: {$dbConnection}");
+        $command = LaravelMultiDatabaseCommands::generateRunMigrationCommand($dbConnection, $force, $migrateSubCommand);
+        $this->info("Executing the command: php artisan {$command}");
+        Artisan::call($command);
         $this->line(Artisan::output());
     }
 }

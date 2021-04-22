@@ -48,8 +48,17 @@ Just like `php artisan make:migration` command, you can use the options `--creat
 ### Running Migrations
 To execute a migrate command in all DB. The list of all databases, must be defined in config file `multi_database_commands`
 ```bash
+# Run migration in all dbs defined in multi_database_commands config file 
 php artisan multi-db:migrate
+
+# Run migration:status in all dbs defined in multi_database_commands config file 
 php artisan multi-db:migrate -C status
+
+
+# Run migration:rollback in teannt db  
+php artisan multi-db:migrate tenant -C rollback
+
+
 ```
 Just like `php artisan migrate` command, you can use all laravel variations `fresh`, `install`, `refresh`, `reset`, `rollback` and status`
 
@@ -59,6 +68,14 @@ To execute the command in on DB, just inform the db connection name
 #Execute the migrate:status just on log db
 php artisan multi-db:migrate log -C status
 ```
+
+
+## Testing
+
+```bash
+composer test
+```
+
 
 ## Changelog
 

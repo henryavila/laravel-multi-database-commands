@@ -2,6 +2,7 @@
 
 namespace AppsInteligentes\LaravelMultiDatabaseCommands\Commands;
 
+use AppsInteligentes\LaravelMultiDatabaseCommands\LaravelMultiDatabaseCommands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 
@@ -27,10 +28,7 @@ class CreateMigrationCommand extends Command
      */
     public function handle(): ?int
     {
-        $name = $this->argument('name');
         $selectedDbConnection = $this->argument('connection');
-        $create = $this->option('create');
-        $table = $this->option('table');
 
         $connectionConfig = config("database.connections.$selectedDbConnection");
         if (empty($connectionConfig)) {
@@ -39,10 +37,12 @@ class CreateMigrationCommand extends Command
             return 1;
         }
 
-        $createCommandOption = $create ? " --create {$create}" : '';
-        $tableCommandOption = $create ? " --table  {$table}" : '';
-
-        $commandToRun = "make:migration {$name} --path database/migrations/{$selectedDbConnection} {$createCommandOption} {$tableCommandOption}";
+        $commandToRun = LaravelMultiDatabaseCommands::generateCreateMigrationCommand(
+            $this->argument('name'),
+            $selectedDbConnection,
+            $this->option('create'),
+            $this->option('table')
+        );
 
         $this->info("Executing the command : php artisan {$commandToRun}");
         Artisan::call($commandToRun);
