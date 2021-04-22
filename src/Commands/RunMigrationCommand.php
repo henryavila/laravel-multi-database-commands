@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Artisan;
 
 class RunMigrationCommand extends Command
 {
-
     public function __construct()
     {
         $this->signature = 'multi-db:migrate
@@ -37,7 +36,7 @@ class RunMigrationCommand extends Command
         $migrationSubCommand = $this->option('command');
         $selectedDbConnection = $this->argument('connection');
 
-        if (!empty($migrationSubCommand) && !in_array($migrationSubCommand, LaravelMultiDatabaseCommands::$supportedMigrationRunSubCommands)) {
+        if (! empty($migrationSubCommand) && ! in_array($migrationSubCommand, LaravelMultiDatabaseCommands::$supportedMigrationRunSubCommands)) {
             $this->error("Migrate command: {$migrationSubCommand} not supported.");
             $this->error('Just the following migrate commands are allowed: ' . implode(', ', LaravelMultiDatabaseCommands::$supportedMigrationRunSubCommands));
 

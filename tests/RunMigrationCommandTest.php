@@ -48,5 +48,4 @@ class RunMigrationCommandTest extends TestCase
             ->expectsOutput('No database specified and no database defined in multi_database_commands config file')
             ->assertExitCode(1);
     }
-
 }

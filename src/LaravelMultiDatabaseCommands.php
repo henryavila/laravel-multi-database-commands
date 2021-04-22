@@ -19,18 +19,19 @@ class LaravelMultiDatabaseCommands
     {
         $forceExecution = $force ? ' --force' : '';
         $command = $command ? ":{$command}" : '';
+
         return "migrate{$command} --database={$dbConnection} --path=database/migrations/{$dbConnection}{$forceExecution}";
     }
 
     public static function generateCreateMigrationCommand(
         string $migrationName,
         string $dbConnection,
-        string|null $create = null,
-        string|null $table = null
-    ): string
-    {
+        string | null $create = null,
+        string | null $table = null
+    ): string {
         $createCommandOption = $create ? " --create {$create}" : '';
         $tableCommandOption = $table ? " --table {$table}" : '';
+
         return "make:migration {$migrationName} --path database/migrations/{$dbConnection}{$createCommandOption}{$tableCommandOption}";
     }
 
@@ -38,8 +39,8 @@ class LaravelMultiDatabaseCommands
     {
         return once(function () {
             $manifest = json_decode(File::get(base_path() . DIRECTORY_SEPARATOR . 'composer.json'), true);
+
             return $manifest['version'];
         });
     }
-
 }

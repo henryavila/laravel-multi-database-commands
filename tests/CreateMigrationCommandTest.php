@@ -32,5 +32,4 @@ class CreateMigrationCommandTest extends TestCase
         );
         $this->assertEquals("make:migration new_user_options --path database/migrations/log --table users", $command);
     }
-
 }
