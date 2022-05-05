@@ -1,6 +1,6 @@
 {
     "name": "apps-inteligentes/laravel-multi-database-commands",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "This package provides an abstraction to efficiently manage multiple database application commands, like: migrate",
     "keywords": [
         "apps-inteligentes",
