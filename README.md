@@ -14,8 +14,7 @@ To update this package, update your `composer.json` file to
     }
 }
 ```
-
-Run a global search a replace on your code looking for `HenryAvila\LaravelMultiDatabaseCommands` and replacing with `HenryAvila\LaravelMultiDatabaseCommands`
+If you overwrite some contente of this pacakge, make sure to run a global search a replace on your code looking for `AppsInteligentes\LaravelMultiDatabaseCommands` and replacing with `HenryAvila\LaravelMultiDatabaseCommands`
 
 
 ## Installation
