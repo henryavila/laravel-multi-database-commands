@@ -1,17 +1,34 @@
 # This package provides an abstraction to efficiently run migrate command on multiple database app
 
 
+## Version 20 Upgrade
+This package has been migrated from `apps-inteligentes/laravel-multi-database-commands` to `henryavila/laravel-multi-database-commands`
+The namespace has been moved from `AppsInteligentes\LaravelMultiDatabaseCommands` to `HenryAvila\LaravelMultiDatabaseCommands`
+
+To update this package, update your `composer.json` file to
+
+```json
+{
+    "require": {
+        "henryavila/laravel-multi-database-commands": "^2.0.0"
+    }
+}
+```
+
+Run a global search a replace on your code looking for `HenryAvila\LaravelMultiDatabaseCommands` and replacing with `HenryAvila\LaravelMultiDatabaseCommands`
+
+
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require apps-inteligentes/laravel-multi-database-commands
+composer require henryavila/laravel-multi-database-commands
 ```
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="AppsInteligentes\LaravelMultiDatabaseCommands\LaravelMultiDatabaseCommandsServiceProvider" --tag="laravel_multi_database_commands-config"
+php artisan vendor:publish --provider="HenryAvila\LaravelMultiDatabaseCommands\LaravelMultiDatabaseCommandsServiceProvider" --tag="laravel_multi_database_commands-config"
 ```
 
 This is the contents of the published config file:
@@ -34,7 +51,7 @@ return [
 All new migration, created by this package will be organized this way:
 each database present in `multi_database_commands.databases` will have their own migration folder.
 
-Ex: All migrations for DB `tenant` will be stored in `database/migration/tenant`. 
+Ex: All migrations for DB `tenant` will be stored in `database/migration/tenant`.
 All migrate command executed by this package will isolate all DB.
 
 ### Create Migration Files

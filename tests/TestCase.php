@@ -1,8 +1,8 @@
 <?php
 
-namespace AppsInteligentes\LaravelMultiDatabaseCommands\Tests;
+namespace Tests;
 
-use AppsInteligentes\LaravelMultiDatabaseCommands\LaravelMultiDatabaseCommandsServiceProvider;
+use HenryAvila\LaravelMultiDatabaseCommands\LaravelMultiDatabaseCommandsServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 

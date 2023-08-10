@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-multi-database-commands` will be documented in this file.
 
+## 2.0.0 - 2023-08-10
+- Migrate from `apps-inteligentes/laravel-multi-database-commands` to `henryavila/laravel-multi-database-commands`
+
 ## 1.2.0 - 2022-05-05
 - Laravel 9 Support
 

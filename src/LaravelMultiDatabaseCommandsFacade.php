@@ -1,11 +1,11 @@
 <?php
 
-namespace AppsInteligentes\LaravelMultiDatabaseCommands;
+namespace HenryAvila\LaravelMultiDatabaseCommands;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \AppsInteligentes\LaravelMultiDatabaseCommands\LaravelMultiDatabaseCommands
+ * @see \HenryAvila\LaravelMultiDatabaseCommands\LaravelMultiDatabaseCommands
  */
 class LaravelMultiDatabaseCommandsFacade extends Facade
 {

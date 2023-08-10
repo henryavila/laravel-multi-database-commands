@@ -1,9 +1,9 @@
 <?php
 
-namespace AppsInteligentes\LaravelMultiDatabaseCommands;
+namespace HenryAvila\LaravelMultiDatabaseCommands;
 
-use AppsInteligentes\LaravelMultiDatabaseCommands\Commands\CreateMigrationCommand;
-use AppsInteligentes\LaravelMultiDatabaseCommands\Commands\RunMigrationCommand;
+use HenryAvila\LaravelMultiDatabaseCommands\Commands\CreateMigrationCommand;
+use HenryAvila\LaravelMultiDatabaseCommands\Commands\RunMigrationCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 

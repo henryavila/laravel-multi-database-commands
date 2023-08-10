@@ -1,8 +1,8 @@
 <?php
 
-namespace AppsInteligentes\LaravelMultiDatabaseCommands\Commands;
+namespace HenryAvila\LaravelMultiDatabaseCommands\Commands;
 
-use AppsInteligentes\LaravelMultiDatabaseCommands\LaravelMultiDatabaseCommands;
+use HenryAvila\LaravelMultiDatabaseCommands\LaravelMultiDatabaseCommands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 

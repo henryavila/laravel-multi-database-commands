@@ -1,6 +1,6 @@
 <?php
 
-namespace AppsInteligentes\LaravelMultiDatabaseCommands;
+namespace HenryAvila\LaravelMultiDatabaseCommands;
 
 use Illuminate\Support\Facades\File;
 

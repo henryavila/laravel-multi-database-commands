@@ -1,2 +1,2 @@
 providers:
-  - AppsInteligentes\LaravelMultiDatabaseCommands\LaravelMultiDatabaseCommandsServiceProvider
+  - HenryAvila\LaravelMultiDatabaseCommands\LaravelMultiDatabaseCommandsServiceProvider

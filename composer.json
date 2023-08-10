@@ -1,13 +1,13 @@
 {
-    "name": "apps-inteligentes/laravel-multi-database-commands",
-    "version": "1.3.0",
+    "name": "henryavila/laravel-multi-database-commands",
+    "version": "2.0.0",
     "description": "This package provides an abstraction to efficiently manage multiple database application commands, like: migrate",
     "keywords": [
-        "apps-inteligentes",
+        "henryavila",
         "laravel",
         "laravel_multi_database_commands"
     ],
-    "homepage": "https://github.com/apps-inteligentes/laravel_multi_database_commands",
+    "homepage": "https://github.com/henryavila/laravel_multi_database_commands",
     "license": "MIT",
     "authors": [
         {
@@ -32,13 +32,13 @@
     },
     "autoload": {
         "psr-4": {
-            "AppsInteligentes\\LaravelMultiDatabaseCommands\\": "src",
-            "AppsInteligentes\\LaravelMultiDatabaseCommands\\Database\\Factories\\": "database/factories"
+            "HenryAvila\\LaravelMultiDatabaseCommands\\": "src",
+            "HenryAvila\\LaravelMultiDatabaseCommands\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "AppsInteligentes\\LaravelMultiDatabaseCommands\\Tests\\": "tests"
+            "Tests\\": "tests"
         }
     },
     "scripts": {
@@ -52,10 +52,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "AppsInteligentes\\LaravelMultiDatabaseCommands\\LaravelMultiDatabaseCommandsServiceProvider"
+                "HenryAvila\\LaravelMultiDatabaseCommands\\LaravelMultiDatabaseCommandsServiceProvider"
             ],
             "aliases": {
-                "LaravelMultiDatabaseCommands": "AppsInteligentes\\LaravelMultiDatabaseCommands\\LaravelMultiDatabaseCommandsFacade"
+                "LaravelMultiDatabaseCommands": "HenryAvila\\LaravelMultiDatabaseCommands\\LaravelMultiDatabaseCommandsFacade"
             }
         }
     },

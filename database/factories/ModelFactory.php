@@ -1,6 +1,6 @@
 <?php
 
-namespace AppsInteligentes\LaravelMultiDatabaseCommands\Database\Factories;
+namespace HenryAvila\LaravelMultiDatabaseCommands\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

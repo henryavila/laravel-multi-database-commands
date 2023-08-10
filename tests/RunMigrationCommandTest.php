@@ -1,8 +1,8 @@
 <?php
 
-namespace AppsInteligentes\LaravelMultiDatabaseCommands\Tests;
+namespace Tests;
 
-use AppsInteligentes\LaravelMultiDatabaseCommands\LaravelMultiDatabaseCommands;
+use HenryAvila\LaravelMultiDatabaseCommands\LaravelMultiDatabaseCommands;
 
 class RunMigrationCommandTest extends TestCase
 {
