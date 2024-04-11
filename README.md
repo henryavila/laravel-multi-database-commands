@@ -1,7 +1,7 @@
 # This package provides an abstraction to efficiently run migrate command on multiple database app
 
 
-## Version 20 Upgrade
+## Version 2.0 Upgrade
 This package has been migrated from `apps-inteligentes/laravel-multi-database-commands` to `henryavila/laravel-multi-database-commands`
 The namespace has been moved from `AppsInteligentes\LaravelMultiDatabaseCommands` to `HenryAvila\LaravelMultiDatabaseCommands`
 
