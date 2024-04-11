@@ -1,6 +1,5 @@
 {
     "name": "henryavila/laravel-multi-database-commands",
-    "version": "2.0.0",
     "description": "This package provides an abstraction to efficiently manage multiple database application commands, like: migrate",
     "keywords": [
         "henryavila",
@@ -18,16 +17,15 @@
     ],
     "require": {
         "php": "^8.0",
-        "illuminate/contracts": "^8.0|^9.0|^10.0",
-        "spatie/laravel-package-tools": "^1.4.3",
-        "spatie/once": "^3.0"
+        "illuminate/contracts": "^8.0|^9.0|^10.0|^11.0",
+        "spatie/laravel-package-tools": "^1.4.3"
     },
     "require-dev": {
         "brianium/paratest": "^6.2",
-        "nunomaduro/collision": "^5.3|^6.1",
-        "orchestra/testbench": "^6.15",
-        "phpunit/phpunit": "^9.3",
-        "spatie/laravel-ray": "^1.9",
+        "nunomaduro/collision": "^5.3|^6.1|^8.1",
+        "orchestra/testbench": "^6.15|^7.0|^8.0|^9.0",
+        "phpunit/phpunit": "^9.5|^10.5",
+        "spatie/laravel-ray": "^1.36.0",
         "vimeo/psalm": "^4.4"
     },
     "autoload": {
